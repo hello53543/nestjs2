@@ -1,10 +1,11 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client" // oder ein anderer sauberer Pfad
 }
 
 datasource db {
-  provider = "sqlite" // oder postgres, mysql etc.
-  url      = "file:./dev.db"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model Book {

@@ -23,6 +23,22 @@ let BooksService = class BooksService {
     async createBook(data) {
         return this.prisma.book.create({ data });
     }
+    async getBookById(id) {
+        return this.prisma.book.findUnique({
+            where: { id },
+        });
+    }
+    async updateBook(id, data) {
+        return this.prisma.book.update({
+            where: { id },
+            data,
+        });
+    }
+    async deleteBook(id) {
+        return this.prisma.book.delete({
+            where: { id },
+        });
+    }
 };
 exports.BooksService = BooksService;
 exports.BooksService = BooksService = __decorate([

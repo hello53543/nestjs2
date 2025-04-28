@@ -26,6 +26,15 @@ let BooksController = class BooksController {
     createBook(bookData) {
         return this.booksService.createBook(bookData);
     }
+    getBookById(id) {
+        return this.booksService.getBookById(id);
+    }
+    updateBook(id, bookData) {
+        return this.booksService.updateBook(id, bookData);
+    }
+    deleteBook(id) {
+        return this.booksService.deleteBook(id);
+    }
 };
 exports.BooksController = BooksController;
 __decorate([
@@ -41,6 +50,28 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], BooksController.prototype, "createBook", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], BooksController.prototype, "getBookById", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Object]),
+    __metadata("design:returntype", Promise)
+], BooksController.prototype, "updateBook", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], BooksController.prototype, "deleteBook", null);
 exports.BooksController = BooksController = __decorate([
     (0, common_1.Controller)('books'),
     __metadata("design:paramtypes", [books_service_1.BooksService])

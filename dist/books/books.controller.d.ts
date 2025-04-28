@@ -5,4 +5,7 @@ export declare class BooksController {
     constructor(booksService: BooksService);
     getAllBooks(): Promise<Book[]>;
     createBook(bookData: Omit<Book, 'id'>): Promise<Book>;
+    getBookById(id: number): Promise<Book | null>;
+    updateBook(id: number, bookData: Partial<Omit<Book, 'id'>>): Promise<Book>;
+    deleteBook(id: number): Promise<Book>;
 }
